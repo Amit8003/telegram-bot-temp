@@ -76,6 +76,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             ydl_opts = {
                 "quiet": True,
                 "format_sort": ["res", "ext:mp4"],
+                "username": "oauth2",
+                "password": "",
             }
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
@@ -123,6 +125,8 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "key": "FFmpegMerge",
                 "preferredcodec": "mp4",
             }],
+            "username": "oauth2",
+            "password": "",
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
