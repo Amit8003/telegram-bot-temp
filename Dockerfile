@@ -1,15 +1,15 @@
-# Base image: Python 3.9 slim version
+# Use official Python image
 FROM python:3.9-slim
 
-# Working directory set karo
+# Set working directory
 WORKDIR /app
 
-# requirements.txt copy karo aur dependencies install karo
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Baaki files (bot.py) copy karo
-COPY . .
+# Copy the bot code
+COPY bot.py .
 
-# Command jo bot ko run karega
+# Run the bot
 CMD ["python", "bot.py"]
